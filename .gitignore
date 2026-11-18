@@ -1,0 +1,5 @@
+_private/
+.DS_Store
+
+# Image-agent originals, not used by the page (kept local until we decide)
+assets/avatar/

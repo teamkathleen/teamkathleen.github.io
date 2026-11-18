@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Kathleen · Boston 2027 for Girls on the Run</title>
+<meta name="description" content="Kathleen Bracken is running the 2027 Boston Marathon to raise $18,000 for Girls on the Run Greater Boston.">
+<link rel="canonical" href="https://teamkathleen.com/">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#1F2A4D">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://teamkathleen.com/">
+<meta property="og:title" content="Team Kathleen · Running Boston for Girls on the Run">
+<meta property="og:description" content="Help Kathleen raise $18,000 for Girls on the Run Greater Boston. Donate, claim a mile, or share her story.">
+<meta property="og:image" content="https://teamkathleen.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Team Kathleen: running Boston for Girls on the Run">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Graduate stands in for Varsity until a licensed Varsity web font is chosen -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&family=Figtree:wght@400;600;800&display=swap">
+<style>
+/* Full-width horizontal hero.
+   Wordmark over the sky, beach behind, the road sweeping across the page, Kathleen at the left,
+   then the headline and a road-shaped progress bar. */
+:root {
+  --navy: #1F2A4D;
+  --teal: #3E9C96;
+  --coral: #EE6F5B;
+  --gold: #F2B544;
+  --sky: #DCEFF0;
+  --sand: #F1E2C4;
+  --asphalt: #4A5470;
+  --paper: #F7FBFB;
+  --ink: #1F2A4D;
+  --muted: #5B6680;
+  --varsity: "Varsity", "Graduate", "Rockwell", Georgia, serif;
+  --body: "Figtree", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; overflow-x: clip; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--body); }
+a { color: inherit; }
+
+/* ---------- HERO SCENE ---------- */
+.hero { position: relative; }
+.scene { position: relative; height: clamp(420px, 62vw, 680px); overflow: hidden; }
+.scene svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.wordmark-big { position: absolute; top: clamp(18px, 4vw, 48px); left: 0; right: 0; text-align: center;
+  font-family: var(--varsity); color: var(--navy); text-transform: uppercase; line-height: .9; pointer-events: none; }
+.wordmark-big .team { display: block; font-size: clamp(22px, 3.6vw, 48px); letter-spacing: .3em; margin-left: .3em; }
+.wordmark-big .name { display: block; font-size: clamp(56px, 12.5vw, 176px); color: var(--coral);
+  text-shadow: 4px 4px 0 var(--navy); letter-spacing: .02em; }
+.runner { position: absolute; left: clamp(4px, 7vw, 140px); bottom: 0; height: 82%; width: auto; max-width: 48%; object-fit: contain; object-position: bottom; }
+
+/* ---------- HEADLINE + ROAD PROGRESS BAR ---------- */
+.below { max-width: 1180px; margin: 0 auto; padding: 8px var(--gutter) 40px; }
+.below h1 { font-family: var(--varsity); font-weight: 400; text-transform: uppercase; text-align: center; color: var(--navy);
+  font-size: clamp(26px, 4vw, 50px); line-height: 1.08; margin: 10px auto 10px; max-width: 22ch; text-wrap: balance; }
+.below .sub { text-align: center; font-size: clamp(17px, 1.8vw, 21px); margin: 0 0 26px; color: var(--ink); }
+.road { position: relative; height: 34px; border-radius: 17px; background: var(--asphalt); overflow: hidden; box-shadow: 0 4px 0 var(--navy); }
+.road::after { content: ""; position: absolute; left: 14px; right: 14px; top: 50%; height: 3px; transform: translateY(-50%);
+  background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 34px); opacity: .85; }
+.road .fill { position: absolute; inset: 0 auto 0 0; width: 15.4%; background: var(--coral); border-radius: 17px; z-index: 1; }
+.road .cp { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--gold); z-index: 2; }
+.legend { position: relative; height: 44px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.legend span { position: absolute; top: 0; font-size: 14px; color: var(--muted); white-space: nowrap; transform: translateX(-50%); text-align: center; line-height: 1.25; }
+.legend b { display: block; color: var(--navy); font-size: 15px; }
+.legend .start { left: 0; transform: none; text-align: left; }
+.legend .start b { color: var(--coral); font-family: var(--varsity); font-size: 22px; font-weight: 400; }
+.legend .end { left: auto; right: 0; transform: none; text-align: right; }
+.legend .end b { font-family: var(--varsity); font-size: 22px; font-weight: 400; }
+.ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; font-weight: 800; text-decoration: none; border-radius: 999px;
+  padding: 13px 26px; border: 2px solid var(--navy); background: #fff; color: var(--navy); transition: transform .12s; }
+.btn:hover { transform: translateY(-2px); }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.btn.donate { background: var(--coral); color: #fff; border-color: var(--coral); box-shadow: 3px 3px 0 var(--navy); font-size: 18px; padding: 14px 34px; }
+
+/* ---------- STICKY HEADER ---------- */
+.bar { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(247,251,251,.95); backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--navy); transform: translateY(-110%); transition: transform .3s ease; }
+.bar.on { transform: none; }
+.wordmark-big { transform-origin: 50% 0; will-change: transform, opacity; }
+.bar-inner > * { opacity: 0; transform: translateY(-8px); transition: opacity .3s ease, transform .3s ease; }
+.bar.on .bar-inner > * { opacity: 1; transform: none; }
+.bar.on .bar-inner > :nth-child(1) { transition-delay: .08s; }
+.bar.on .bar-inner > :nth-child(2) { transition-delay: .14s; }
+.bar.on .bar-inner > :nth-child(3) { transition-delay: .2s; }
+.bar.on .bar-inner > :nth-child(4) { transition-delay: .26s; }
+.bar.on .badge { animation: pop .45s .08s ease-out both; }
+@keyframes pop { 0% { transform: scale(.4); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .bar-inner > * { transition: none; } .bar.on .badge { animation: none; } }
+.bar-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: 12px;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 8px var(--gutter); }
+img.badge { border: 0; background: none; object-fit: cover; }
+.badge { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); border: 2px solid var(--navy);
+  display: grid; place-items: center; color: #fff; font-family: var(--varsity); font-size: 15px; flex: none; }
+.bar .wm { flex: 1; font-family: var(--varsity); text-transform: uppercase; letter-spacing: .05em; font-size: 18px; }
+.bar .wm b { color: var(--coral); font-weight: 400; }
+.mini { width: 160px; }
+.mini .road { height: 10px; box-shadow: none; }
+.mini .road::after { display: none; }
+.mini small { display: block; font-size: 11.5px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.bar .btn { padding: 8px 18px; font-size: 16px; }
+
+/* ---------- Shared section styles ---------- */
+.section { max-width: 1180px; margin: 0 auto; padding: 64px var(--gutter); }
+.eyebrow { font-family: var(--varsity); text-transform: uppercase; letter-spacing: .14em; color: var(--teal); font-size: 15px; margin: 0 0 8px; }
+.section h2 { font-family: var(--varsity); font-weight: 400; text-transform: uppercase; color: var(--navy);
+  font-size: clamp(30px, 4.4vw, 54px); line-height: 1.02; margin: 0 0 20px; text-wrap: balance; }
+
+/* ---------- VIDEO ---------- */
+.video-band { background: var(--navy); color: #fff; }
+.video-band .section { padding-block: 56px; text-align: center; }
+.video-band .eyebrow { color: var(--gold); }
+.video-band h2 { color: #fff; }
+.yt { position: relative; display: block; width: 100%; max-width: 900px; margin: 0 auto; aspect-ratio: 16 / 9; border: 0; padding: 0;
+  border-radius: 16px; overflow: hidden; background: #000 center / cover no-repeat; cursor: pointer; box-shadow: 8px 8px 0 var(--coral); }
+.yt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(31,42,77,.55)); }
+.yt .play { position: absolute; left: 50%; top: 50%; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%;
+  background: var(--coral); box-shadow: 0 0 0 6px rgba(255,255,255,.85); z-index: 1; transition: transform .15s; }
+.yt .play::before { content: ""; position: absolute; left: 34px; top: 26px; border-left: 26px solid #fff; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+.yt:hover .play { transform: scale(1.06); }
+.yt:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.yt .len { position: absolute; right: 14px; bottom: 12px; z-index: 1; font-weight: 800; font-size: 14px; color: #fff; }
+.yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-note { margin: 18px 0 0; color: #C9D3E6; font-size: 15px; }
+
+/* ---------- MY STORY ---------- */
+.story { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .9fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.story p { max-width: 58ch; margin: 0 0 16px; font-size: 18px; }
+.story .aside { color: var(--muted); font-style: italic; }
+.postcard { margin: 0; background: #fff; padding: 12px 12px 44px; border-radius: 4px; box-shadow: 0 10px 24px rgba(31,42,77,.18);
+  transform: rotate(2.5deg); position: relative; max-width: 380px; justify-self: center; }
+.postcard img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 2px; }
+.postcard figcaption { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; font-size: 14px; color: var(--muted); }
+
+/* ---------- QUOTES ---------- */
+.quotes { background: var(--sky); }
+.quote-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.pull { margin: 0; background: #fff; border: 2px solid var(--navy); border-radius: 16px; padding: 28px 28px 22px; box-shadow: 5px 5px 0 var(--navy); position: relative; }
+.pull::before { content: "“"; position: absolute; top: -26px; left: 18px; font-family: var(--varsity); font-size: 96px; line-height: 1; color: var(--coral); }
+.pull p { font-size: clamp(19px, 2vw, 23px); line-height: 1.4; margin: 0 0 14px; }
+.pull cite { font-style: normal; font-size: 14px; color: var(--muted); }
+.pull cite a { color: var(--teal); font-weight: 800; }
+.strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 40px; }
+.strip img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 70%; border-radius: 4px; border: 8px solid #fff; box-shadow: 0 6px 16px rgba(31,42,77,.15); }
+.strip img:nth-child(1) { transform: rotate(-2deg); } .strip img:nth-child(3) { transform: rotate(2deg); }
+
+@media (max-width: 760px) {
+  .story { grid-template-columns: 1fr; }
+  .quote-grid { grid-template-columns: 1fr; gap: 40px; }
+  .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .strip img { border-width: 4px; }
+}
+
+/* ---------- WHAT YOUR GIFT DOES ---------- */
+.gift { background: var(--teal); color: #fff; }
+.gift .eyebrow { color: var(--gold); }
+.gift h2 { color: #fff; }
+.gift-head { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
+.gift-head > div { flex: 1 1 320px; min-width: 0; }
+.shoes { width: clamp(200px, 28vw, 320px); height: auto; flex: none; transform: rotate(-6deg); filter: drop-shadow(5px 6px 0 rgba(31,42,77,.35)); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 8px 0 28px; }
+.stat { background: #fff; color: var(--navy); border-radius: 16px; padding: 22px 20px; border: 2px solid var(--navy); box-shadow: 5px 5px 0 var(--navy); }
+.stat b { display: block; font-family: var(--varsity); font-weight: 400; font-size: clamp(36px, 4.6vw, 56px); line-height: 1; color: var(--coral); font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 8px; font-size: 17px; }
+.gift .fine { max-width: 62ch; color: #E8F5F3; font-size: 16px; margin: 0 0 22px; }
+.gift .line { font-size: clamp(19px, 2vw, 22px); max-width: 60ch; margin: 0; }
+.gift .line a { color: var(--gold); font-weight: 800; font-size: 15px; }
+
+/* ---------- CLAIM A MILE: postcard course map ---------- */
+.postcard-map { background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 14px 30px rgba(31,42,77,.18); }
+.map-scroll { overflow-x: auto; border-radius: 6px; }
+.map-wrap { position: relative; min-width: 760px; }
+.map-wrap svg { display: block; width: 100%; height: auto; }
+.space { cursor: pointer; }
+.space circle { stroke: var(--navy); stroke-width: 3; transition: transform .12s; transform-box: fill-box; transform-origin: center; }
+.space text { font-family: var(--varsity); font-size: 15px; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.space:hover circle, .space:focus circle, .space.sel circle { transform: scale(1.18); }
+.space:focus { outline: none; }
+.space:focus-visible circle { stroke: var(--gold); stroke-width: 5; }
+.t-team circle { fill: #fff; } .t-team text { fill: var(--navy); }
+.t-hill circle { fill: var(--gold); } .t-hill text { fill: var(--navy); }
+.t-sig circle { fill: var(--coral); } .t-sig text { fill: #fff; }
+.claimed circle { fill: var(--navy); } .claimed text { fill: #fff; }
+.mile-card { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; margin-top: 14px;
+  padding: 16px 18px; border: 2px solid var(--navy); border-radius: 12px; background: var(--paper); }
+.mile-card .what { font-size: 17px; }
+.mile-card .what b { font-family: var(--varsity); font-weight: 400; font-size: 24px; display: block; line-height: 1.1; }
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 22px; }
+.tier { border: 2px solid var(--navy); border-radius: 12px; padding: 12px 14px; background: #fff; font-size: 15px; line-height: 1.35; }
+.tier b { display: block; font-family: var(--varsity); font-weight: 400; font-size: 20px; }
+.tier .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--navy); vertical-align: -2px; margin-right: 6px; }
+.tier.finish { background: var(--navy); color: #fff; grid-column: span 2; }
+.tier.finish b { color: var(--gold); font-size: 24px; }
+.map-note { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+
+/* Finish tape */
+.tape-wrap { margin-top: 44px; text-align: center; }
+.tape { position: relative; overflow: hidden; background: var(--coral); color: #fff; border-block: 4px solid var(--navy); transform: rotate(-1.2deg); margin: 0 calc(-1 * var(--gutter)); }
+.tape .track-names { display: inline-flex; gap: 0; white-space: nowrap; padding: 12px 0; font-family: var(--varsity); font-size: clamp(18px, 2.2vw, 26px); text-transform: uppercase; animation: tape 40s linear infinite; }
+.tape .track-names span { padding: 0 22px; }
+.tape .track-names span::after { content: "★"; color: var(--gold); padding-left: 44px; }
+@keyframes tape { to { transform: translateX(-50%); } }
+.tape-wrap .pull { max-width: 720px; margin: 36px auto 0; text-align: left; }
+
+@media (max-width: 760px) {
+  .stats { grid-template-columns: 1fr; }
+  .tier.finish { grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .tape .track-names { animation: none; } }
+
+/* ---------- SHARE ---------- */
+.share-band { background: var(--sky); }
+.share-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.qr-card { background: #fff; border: 2px solid var(--navy); border-radius: 20px; padding: 22px; box-shadow: 6px 6px 0 var(--navy); text-align: center; max-width: 360px; justify-self: center; width: 100%; }
+.qr svg { display: block; width: 100%; height: auto; }
+.qr-url { font-family: var(--varsity); font-size: 20px; margin: 10px 0 14px; color: var(--navy); }
+.share-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.share-btns button { font: inherit; font-weight: 800; cursor: pointer; }
+.qr-card button { font: inherit; font-weight: 800; cursor: pointer; }
+.share-tip { margin: 16px 0 0; color: var(--muted); font-size: 15px; }
+
+/* ---------- FOLLOW ---------- */
+.follow-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.follow-card { display: flex; gap: 16px; align-items: center; text-decoration: none; background: #fff; border: 2px solid var(--navy);
+  border-radius: 16px; padding: 18px 20px; box-shadow: 5px 5px 0 var(--navy); transition: transform .12s; }
+.follow-card:hover { transform: translateY(-2px); }
+.follow-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.follow-card svg { width: 44px; height: 44px; flex: none; color: var(--coral); }
+.follow-card span { color: var(--muted); font-size: 16px; }
+.follow-card b { display: block; font-family: var(--varsity); font-weight: 400; font-size: 24px; color: var(--navy); }
+
+/* ---------- FOOTER ---------- */
+.site-foot { background: var(--navy); color: #DDE5F2; }
+.foot-grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; padding-block: 48px calc(48px + env(safe-area-inset-bottom, 0px)); }
+.foot-grid > div { flex: 1 1 320px; }
+.foot-grid p { margin: 0 0 8px; max-width: 60ch; }
+.foot-mark { font-family: var(--varsity); text-transform: uppercase; font-size: 26px; color: #fff; }
+.foot-mark b { color: var(--coral); font-weight: 400; }
+.foot-mark img { width: 56px; height: 56px; vertical-align: middle; margin-right: 12px; }
+.foot-small { font-size: 14px; color: #A9B6CE; }
+.site-foot .btn.donate { box-shadow: 3px 3px 0 #000; }
+
+@media (max-width: 760px) {
+  .share-grid, .follow-grid { grid-template-columns: 1fr; }
+  .qr-card { order: 2; max-width: 300px; }
+}
+
+
+@media (max-width: 640px) {
+  .scene { height: 440px; }
+  .legend .cpl { display: none; }
+  .mini { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .bar, .btn { transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="hero" id="hero">
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1440 640" preserveAspectRatio="xMinYMax slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FBE6CC"/><stop offset=".55" stop-color="#F6D7C0"/><stop offset="1" stop-color="#DCEFF0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="640" fill="url(#sky)"/>
+      <!-- sun -->
+      <circle cx="1080" cy="300" r="70" fill="#F2B544" opacity=".9"/>
+      <!-- ocean -->
+      <rect x="0" y="300" width="1440" height="70" fill="#3E9C96"/>
+      <path d="M0 310 H1440" stroke="#7CC3BD" stroke-width="6"/>
+      <path d="M60 334 h60 M260 350 h90 M520 330 h70 M820 346 h80 M1160 334 h60 M1320 352 h70" stroke="#DCEFF0" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+      <!-- pier, far right -->
+      <g fill="#1F2A4D"><rect x="1180" y="292" width="260" height="6"/>
+        <rect x="1190" y="298" width="3" height="18"/><rect x="1240" y="298" width="3" height="18"/><rect x="1290" y="298" width="3" height="18"/><rect x="1340" y="298" width="3" height="18"/><rect x="1390" y="298" width="3" height="18"/>
+        <path d="M1396 292 l14 -14 l14 14z"/></g>
+      <!-- beach -->
+      <path d="M0 370 H1440 V640 H0z" fill="#F1E2C4"/>
+      <!-- umbrella + towel -->
+      <g transform="translate(470 330)">
+        <rect x="-2" y="0" width="4" height="62" fill="#1F2A4D"/>
+        <path d="M-56 6 Q0 -40 56 6 Z" fill="#EE6F5B"/>
+        <path d="M-28 -12 Q-14 -28 0 -31 L0 6 L-28 6 Z" fill="#fff" opacity=".9"/>
+        <path d="M28 -12 Q14 -28 0 -31 L0 6 L28 6 Z" fill="#F2B544"/>
+        <rect x="-34" y="58" width="60" height="14" rx="3" fill="#3E9C96" transform="rotate(-4)"/>
+      </g>
+      <!-- palms, right -->
+      <g fill="#1F2A4D">
+        <path d="M1262 380 C1258 300 1268 230 1290 170 L1298 172 C1278 232 1270 300 1272 380 Z"/>
+        <path d="M1292 172 c-40 -18 -78 -6 -96 14 c34 -14 62 -14 92 -10 c-38 4 -70 26 -76 48 c26 -26 56 -36 80 -42 c2 18 -2 44 -14 66 c22 -18 30 -46 22 -70 c30 6 56 28 64 50 c2 -28 -26 -50 -58 -56 c32 -8 66 -2 86 14 c-14 -26 -56 -36 -100 -14z"/>
+        <path d="M1352 384 C1350 330 1356 284 1368 246 L1374 248 C1364 286 1360 332 1360 384 Z"/>
+        <path d="M1370 248 c-26 -12 -52 -4 -64 10 c22 -10 42 -10 62 -6 c-26 4 -46 18 -50 34 c18 -18 38 -24 54 -28 c2 12 -2 30 -10 44 c14 -12 20 -30 14 -46 c20 4 38 18 42 34 c2 -18 -16 -34 -38 -38 c22 -6 44 0 58 10 c-10 -18 -38 -24 -68 -10z"/>
+      </g>
+      <!-- sea grape bushes along the road -->
+      <g fill="#2F7D5A"><circle cx="210" cy="402" r="22"/><circle cx="244" cy="408" r="17"/><circle cx="660" cy="392" r="18"/><circle cx="1010" cy="384" r="16"/><circle cx="1040" cy="388" r="12"/></g>
+      <!-- the road: sweeps from the bottom left across the page to the right horizon -->
+      <path d="M-40 560 C 380 450, 860 410, 1480 396 L1480 432 C 940 448, 460 520, 140 680 L-40 680 Z" fill="#4A5470"/>
+      <path d="M-40 560 C 380 450, 860 410, 1480 396" fill="none" stroke="#1F2A4D" stroke-width="4"/>
+      <path d="M-20 624 C 400 492, 900 430, 1480 414" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="34 30" stroke-linecap="round"/>
+    </svg>
+
+    <div class="wordmark-big"><span class="team">Team</span><span class="name">Kathleen</span></div>
+    <img class="runner" src="assets/illustrations/kathleen-running.webp" alt="" width="735" height="1151">
+  </div>
+
+  <div class="below">
+    <h1>I'm running the Boston Marathon for Girls on the Run.</h1>
+    <p class="sub">Help me raise $18,000 by April 12, so more girls get a season.</p>
+
+    <div class="road" role="img" data-raised-label aria-label="$2,772 raised of $18,000"><span class="fill"></span><span class="cp" style="left:33.3%"></span><span class="cp" style="left:60%"></span></div>
+    <div class="legend">
+      <span class="start"><b>$2,772</b>raised</span>
+      <span class="cpl" style="left:33.3%"><b>$6,000</b>by Dec 7</span>
+      <span class="cpl" style="left:60%"><b>$10,800</b>by Jan 29</span>
+      <span class="end"><b>$18,000</b>by Apr 12</span>
+    </div>
+
+    <div class="ctas">
+      <a class="btn donate" href="https://www.givengain.com/project/kathleen-raising-funds-for-girls-on-the-run-greater-boston-129854?utm_source=teamkathleen&utm_medium=web&utm_content=hero">Donate</a>
+      <a class="btn" href="#share">Share</a>
+      <a class="btn" href="#follow">Follow</a>
+    </div>
+  </div>
+</header>
+
+<nav class="bar" id="bar" aria-label="Team Kathleen">
+  <div class="bar-inner">
+    <img class="badge" src="assets/illustrations/kathleen-badge.webp" alt="" width="42" height="42">
+    <span class="wm">Team <b>Kathleen</b></span>
+    <span class="mini" data-raised-label aria-label="$2,772 raised of $18,000"><span class="road"><span class="fill"></span></span><small>$2,772 / $18K</small></span>
+    <a class="btn donate" href="https://www.givengain.com/project/kathleen-raising-funds-for-girls-on-the-run-greater-boston-129854?utm_source=teamkathleen&utm_medium=web&utm_content=header">Donate</a>
+  </div>
+</nav>
+
+<main>
+<section class="video-band" aria-labelledby="video-h">
+  <div class="section">
+    <p class="eyebrow">Two minutes from the Juno Beach Pier</p>
+    <h2 id="video-h">Hear it from Kathleen.</h2>
+    <button class="yt" id="yt" type="button" data-id="7a0F6DbZYlQ" aria-label="Play Kathleen's video, 2 minutes 17 seconds"
+      style="background-image:url('assets/photos/video-poster.jpg')">
+      <span class="play" aria-hidden="true"></span><span class="len">2:17</span>
+    </button>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="story-h">
+  <div class="story">
+    <div>
+      <p class="eyebrow">My story</p>
+      <h2 id="story-h">Boston is my reach school.</h2>
+      <p>I've spent more than 20 years in college counseling, and here's the secret: it's rarely luck. You picture where you want to end up, you make a plan, and you chip away at it every day. Mostly, you show up.</p>
+      <p>Boston's been on my list for a long time. I'm not fast, and nobody's mistaking me for a qualifier, so I went looking for my best fit. Girls on the Run is a program I already love and coach, and I earned a spot to run Boston as one of their runners.</p>
+      <p>So now I'm doing the work: 2,026 miles this year, a half marathon every Sunday on A1A, and $18,000 to raise for girls who are just figuring out what they can do.</p>
+      <p class="aside">As a kid I dreaded the gym-class mile. Who saw this coming?</p>
+    </div>
+    <figure class="postcard">
+      <img src="assets/photos/running-stride.jpg" alt="Kathleen mid-stride on a tree-lined road during a race" width="768" height="1024" loading="lazy">
+      <figcaption>Showing up, one mile at a time</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="quotes" aria-label="In Kathleen's words">
+  <div class="section">
+    <div class="quote-grid">
+      <blockquote class="pull">
+        <p>Part of what I do as a college counselor is help young people set goals for themselves. And Girls on the Run in many ways feels like a natural extension of that.</p>
+        <cite>Kathleen · <a href="https://youtu.be/7a0F6DbZYlQ?t=48">watch at 0:48</a></cite>
+      </blockquote>
+      <blockquote class="pull">
+        <p>The goal… is not to compete against someone else who's also running. It is to just finish on your personal best terms.</p>
+        <cite>Kathleen, on Girls on the Run · <a href="https://youtu.be/7a0F6DbZYlQ?t=41">watch at 0:41</a></cite>
+      </blockquote>
+    </div>
+    <div class="strip">
+      <img src="assets/photos/sunrise-selfie.jpg" alt="Kathleen in a cap and sunglasses on an early run" width="900" height="1200" loading="lazy">
+      <img style="object-position:50% 12%" src="assets/photos/race-bib.jpg" alt="Kathleen smiling in a race bib after a race" width="781" height="1800" loading="lazy">
+      <img style="object-position:60% 30%" src="assets/photos/office-with-dog.jpg" alt="Kathleen smiling in her office, holding a small black dog in front of a bookshelf" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="gift" aria-labelledby="gift-h">
+  <div class="section">
+    <div class="gift-head">
+      <div>
+        <p class="eyebrow">What your gift does</p>
+        <h2 id="gift-h">$425 puts a girl through a season.</h2>
+      </div>
+      <svg class="shoes" viewBox="0 0 300 150" role="img" aria-label="Illustration of a pair of running shoes">
+        <!-- back shoe -->
+        <g transform="translate(70 8) scale(.9)">
+          <path d="M22 80 C 20 52, 40 30, 70 28 L 96 30 C 112 46, 132 54, 162 58 C 192 62, 208 68, 208 82 Z" fill="#F2B544" stroke="#1F2A4D" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M16 80 H212 C218 80 218 96 208 98 H24 C12 98 10 86 16 80 Z" fill="#fff" stroke="#1F2A4D" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M40 72 C 80 64, 120 62, 170 70" fill="none" stroke="#3E9C96" stroke-width="7" stroke-linecap="round"/>
+          <g stroke="#1F2A4D" stroke-width="4" stroke-linecap="round"><path d="M84 36 l10 -6"/><path d="M94 42 l10 -6"/><path d="M104 48 l10 -6"/></g>
+        </g>
+        <!-- front shoe -->
+        <g transform="translate(14 44)">
+          <path d="M22 80 C 20 52, 40 30, 70 28 L 96 30 C 112 46, 132 54, 162 58 C 192 62, 208 68, 208 82 Z" fill="#EE6F5B" stroke="#1F2A4D" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M16 80 H212 C218 80 218 96 208 98 H24 C12 98 10 86 16 80 Z" fill="#fff" stroke="#1F2A4D" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M40 72 C 80 64, 120 62, 170 70" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          <path d="M24 52 C 22 42, 28 32, 40 30" fill="none" stroke="#1F2A4D" stroke-width="4" stroke-linecap="round"/>
+          <g stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M84 36 l10 -6"/><path d="M94 42 l10 -6"/><path d="M104 48 l10 -6"/></g>
+          <path d="M100 30 C 92 14, 74 12, 70 22 M100 30 C 112 16, 128 18, 124 28" fill="none" stroke="#1F2A4D" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#1F2A4D"><rect x="40" y="98" width="10" height="4" rx="2"/><rect x="80" y="98" width="10" height="4" rx="2"/><rect x="120" y="98" width="10" height="4" rx="2"/><rect x="160" y="98" width="10" height="4" rx="2"/></g>
+        </g>
+      </svg>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>$425</b><span>one girl's full season of Girls on the Run</span></div>
+      <div class="stat"><b>$5,000</b><span>nearly 12 girls</span></div>
+      <div class="stat"><b>$18,000</b><span>about 42 girls</span></div>
+    </div>
+    <p class="fine">Families pay $295, and Girls on the Run covers the rest, plus scholarships for families who can't. Every gift goes to Girls on the Run Greater Boston.</p>
+    <p class="line">“Whether that's transportation or running sneakers, your gift is going to make an impact and ensure that finances don't stand in the way of a young girl joining her local Girls on the Run team.” <a href="https://youtu.be/7a0F6DbZYlQ?t=74">watch at 1:14</a></p>
+  </div>
+</section>
+
+<section class="section" id="miles" aria-labelledby="miles-h">
+  <p class="eyebrow">Sponsor a mile</p>
+  <h2 id="miles-h">Claim a mile.</h2>
+  <p style="max-width:60ch; margin:0 0 24px">26.2 miles from Hopkinton to Boylston Street. Pick one for yourself, your business, your team, or your class. I'll dedicate a training run to you and name you at your mile on race day.</p>
+
+  <div class="postcard-map">
+    <div class="map-scroll">
+      <div class="map-wrap">
+        <svg id="course" viewBox="0 0 1000 560" role="group" aria-label="Course map with 26 miles and the finish line">
+          <defs>
+            <pattern id="checker" width="16" height="16" patternUnits="userSpaceOnUse">
+              <rect width="16" height="16" fill="#fff"/><rect width="8" height="8" fill="#1F2A4D"/><rect x="8" y="8" width="8" height="8" fill="#1F2A4D"/>
+            </pattern>
+          </defs>
+          <!-- postcard ground -->
+          <rect width="1000" height="560" fill="#DCEFF0"/>
+          <path d="M0 400 C 200 360, 380 470, 560 430 S 860 380, 1000 420 V560 H0z" fill="#CFE6D4"/>
+          <!-- reservoir and Charles River hints -->
+          <ellipse cx="640" cy="290" rx="60" ry="26" fill="#9FD0CB"/>
+          <path d="M800 470 C 860 450, 920 470, 1000 450 V490 C 930 505, 860 490, 800 505z" fill="#9FD0CB"/>
+          <!-- skyline, finish end -->
+          <g fill="#1F2A4D" opacity=".85">
+            <rect x="890" y="60" width="22" height="70"/><rect x="916" y="38" width="18" height="92"/><rect x="938" y="74" width="26" height="56"/><rect x="968" y="52" width="16" height="78"/>
+            <path d="M916 38 l9 -18 l9 18z"/>
+          </g>
+          <!-- trees -->
+          <g fill="#2F7D5A">
+            <circle cx="70" cy="140" r="16"/><circle cx="92" cy="150" r="12"/><circle cx="250" cy="470" r="14"/><circle cx="270" cy="478" r="10"/>
+            <circle cx="430" cy="120" r="14"/><circle cx="452" cy="128" r="11"/><circle cx="560" cy="500" r="13"/><circle cx="760" cy="150" r="13"/><circle cx="780" cy="158" r="10"/>
+          </g>
+          <!-- the route -->
+          <path id="route" d="M60 230 C 140 330, 220 340, 290 270 S 400 150, 470 210 S 560 380, 650 360 S 720 220, 790 230 S 880 330, 930 260"
+            fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+          <path d="M60 230 C 140 330, 220 340, 290 270 S 400 150, 470 210 S 560 380, 650 360 S 720 220, 790 230 S 880 330, 930 260"
+            fill="none" stroke="#4A5470" stroke-width="3" stroke-dasharray="6 10"/>
+          <!-- town labels -->
+          <g font-family="Graduate, Georgia, serif" font-size="17" fill="#1F2A4D" text-anchor="middle">
+            <text x="60" y="190">HOPKINTON</text>
+            <text x="200" y="372">ASHLAND · FRAMINGHAM</text>
+            <text x="350" y="130">NATICK</text>
+            <text x="380" y="300">WELLESLEY</text>
+            <text x="690" y="420">NEWTON HILLS</text>
+            <text x="790" y="190">HEARTBREAK HILL</text>
+            <text x="868" y="350">BROOKLINE</text>
+          </g>
+          <!-- postcard stamp -->
+          <g transform="translate(36 30)">
+            <rect width="124" height="84" fill="#fff" stroke="#1F2A4D" stroke-width="3" stroke-dasharray="4 4"/>
+            <text x="62" y="46" text-anchor="middle" font-family="Graduate, Georgia, serif" font-size="34" fill="#EE6F5B">26.2</text>
+            <text x="62" y="70" text-anchor="middle" font-family="Figtree, sans-serif" font-size="12" font-weight="800" fill="#1F2A4D">MILES TO BOYLSTON</text>
+          </g>
+          <g id="spaces"></g>
+        </svg>
+      </div>
+    </div>
+    <div class="mile-card" id="mile-card" aria-live="polite">
+      <div class="what"><b>Tap a mile</b>Every space on the map is a mile you can claim.</div>
+      <a class="btn donate" id="claim-btn" href="https://www.givengain.com/project/kathleen-raising-funds-for-girls-on-the-run-greater-boston-129854?utm_source=teamkathleen&utm_medium=web&utm_content=mile-map">Claim a mile</a>
+    </div>
+  </div>
+
+  <div class="tiers">
+    <div class="tier finish"><b>The Finish Line · $5,000</b>The last 0.2 miles down Boylston Street. One sponsor, top billing everywhere, and every donor's name on the finish tape.</div>
+    <div class="tier"><b>Stage · $2,500</b>A five-mile stretch of the course.</div>
+    <div class="tier"><b><span class="dot" style="background:var(--coral)"></span>Signature · $1,000</b>Miles 1, 13, 21, and 26.</div>
+    <div class="tier"><b><span class="dot" style="background:var(--gold)"></span>Hill · $750</b>The Newton hills, 17 to 20.</div>
+    <div class="tier"><b><span class="dot" style="background:#fff"></span>Team · $500</b>Every other mile. Ten friends at $50 each.</div>
+  </div>
+  <p class="map-note">When you give on GivenGain, add the mile you want in your comment. Claimed miles turn navy and show your name.</p>
+
+  <div class="tape-wrap">
+    <p class="eyebrow">The finish tape</p>
+    <h2 style="margin-bottom:22px">Every donor crosses the line with me.</h2>
+    <div class="tape" aria-label="Donor names on the finish tape">
+      <div class="track-names" id="tape-names"></div>
+    </div>
+    <blockquote class="pull">
+      <p>Every time I see your name on the donation list, it means the world to me.</p>
+      <cite>Kathleen · <a href="https://youtu.be/7a0F6DbZYlQ?t=125">watch at 2:05</a></cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="share-band" id="share" aria-labelledby="share-h">
+  <div class="section share-grid">
+    <div class="qr-card">
+      <div id="qr" class="qr" role="img" aria-label="QR code that opens TeamKathleen.com"></div>
+      <p class="qr-url">TeamKathleen.com</p>
+      <button class="btn" type="button" id="qr-dl">Download the QR code</button>
+    </div>
+    <div>
+      <p class="eyebrow">Share</p>
+      <h2 id="share-h">Help me get to the start line.</h2>
+      <blockquote class="pull" style="margin:28px 0 24px">
+        <p>Another thing that you can do to support me is just share my story.</p>
+        <cite>Kathleen · <a href="https://youtu.be/7a0F6DbZYlQ?t=83">watch at 1:23</a></cite>
+      </blockquote>
+      <div class="share-btns">
+        <button class="btn" type="button" id="share-native" hidden>Share…</button>
+        <button class="btn" type="button" id="share-copy">Copy link</button>
+        <a class="btn" id="share-sms" href="#">Text it</a>
+        <a class="btn" id="share-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn" id="share-email" href="#">Email</a>
+      </div>
+      <p class="share-tip" id="share-status" aria-live="polite">Posting on Instagram? Copy the link and add it as a link sticker on your story.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="follow" aria-labelledby="follow-h">
+  <p class="eyebrow">Follow</p>
+  <h2 id="follow-h">Run along with me.</h2>
+  <div class="follow-grid">
+    <a class="follow-card" href="http://instagram.com/90210kat" target="_blank" rel="noopener">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="11" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="34.5" cy="13.5" r="2.6" fill="currentColor"/></svg>
+      <span><b>Instagram</b>@90210kat · training, Sunday runs, and thank-yous</span>
+    </a>
+    <a class="follow-card" href="https://strava.app.link/gKj2PDwt97b" target="_blank" rel="noopener">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40 L20 14 L32 40" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M27 30 L33 18 L41 34" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>
+      <span><b>Strava</b>Every mile on the way to 2,026 this year</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="section foot-grid">
+    <div>
+      <p class="foot-mark"><img src="assets/illustrations/kathleen-badge.webp" alt="" width="56" height="56">Team <b>Kathleen</b></p>
+      <p>All gifts go to Girls on the Run Greater Boston through GivenGain. Totals and names update daily.</p>
+      <p class="foot-small"><a href="contact.html">Contact</a> · Not affiliated with the Boston Athletic Association.</p>
+    </div>
+    <a class="btn donate" href="https://www.givengain.com/project/kathleen-raising-funds-for-girls-on-the-run-greater-boston-129854?utm_source=teamkathleen&utm_medium=web&utm_content=footer">Donate</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+  // ---------- Hero collapses into the header ----------
+  // As the scene scrolls away, the big wordmark lifts, shrinks, and fades; once it's mostly gone the
+  // header slides in, and its badge, wordmark, mini road, and Donate arrive one after another.
+  const bar = document.getElementById('bar');
+  const scene = document.querySelector('.scene');
+  const big = document.querySelector('.wordmark-big');
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  let ticking = false;
+  function onScroll() {
+    ticking = false;
+    const h = scene.offsetHeight;
+    const p = Math.min(1, Math.max(0, scrollY / (h * 0.65)));
+    if (!calm.matches) {
+      big.style.transform = `translateY(${-p * 60}px) scale(${1 - p * 0.55})`;
+      big.style.opacity = String(Math.max(0, 1 - p * 1.25));
+    }
+    bar.classList.toggle('on', scrollY > h * 0.6);
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  // ---------- Course map ----------
+  // Update by hand: add a sponsor name to a mile to mark it claimed, e.g. { 9: "Doane Stuart Class of 2009" }.
+  const SPONSORS = {};
+  const FINISH_SPONSOR = null;
+  // Donor names for the finish tape (add names only with Kathleen's OK).
+  const DONORS = [];
+
+  const TOWN = n => n <= 2 ? 'Hopkinton' : n <= 5 ? 'Ashland' : n <= 9 ? 'Framingham' : n <= 12 ? 'Natick'
+    : n <= 15 ? 'Wellesley' : n <= 20 ? 'Newton' : n === 21 ? 'Heartbreak Hill' : n <= 24 ? 'Brookline' : 'Boston';
+  const TIER = n => [1, 13, 21, 26].includes(n) ? ['sig', 'Signature mile', 1000]
+    : n >= 17 && n <= 20 ? ['hill', 'Hill mile', 750] : ['team', 'Team mile', 500];
+  const NOTE = { 1: 'The start', 13: 'Halfway', 21: 'Heartbreak Hill', 26: 'The last full mile' };
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const route = document.getElementById('route');
+  const spacesG = document.getElementById('spaces');
+  const card = document.getElementById('mile-card');
+  const claimBtn = document.getElementById('claim-btn');
+  const len = route.getTotalLength();
+  const fmt = v => '$' + v.toLocaleString('en-US');
+
+  function select(el, html, label) {
+    spacesG.querySelectorAll('.sel').forEach(s => s.classList.remove('sel'));
+    el.classList.add('sel');
+    card.querySelector('.what').innerHTML = html;
+    claimBtn.textContent = label;
+  }
+
+  for (let n = 1; n <= 27; n++) {
+    const finish = n === 27;
+    // Miles fill the route up to 95%, leaving room before the finish square at the end.
+    const p = route.getPointAtLength(len * (finish ? 1 : 0.95 * (n - 0.5) / 26));
+    const g = document.createElementNS(svgNS, 'g');
+    const [tier, tierName, price] = finish ? ['finish', 'The Finish Line', 5000] : TIER(n);
+    const who = finish ? FINISH_SPONSOR : SPONSORS[n];
+    g.setAttribute('class', `space ${finish ? '' : 't-' + tier}${who ? ' claimed' : ''}`);
+    g.setAttribute('tabindex', '0');
+    g.setAttribute('role', 'button');
+    const name = finish ? 'The Finish Line, Boylston Street' : `Mile ${n}, ${TOWN(n)}`;
+    g.setAttribute('aria-label', `${name}: ${tierName}, ${fmt(price)}, ${who ? 'claimed by ' + who : 'open'}`);
+    g.innerHTML = finish
+      ? `<rect x="${p.x - 34}" y="${p.y - 34}" width="68" height="68" rx="10" fill="url(#checker)" stroke="#1F2A4D" stroke-width="4"/>
+         <text x="${p.x}" y="${p.y - 50}" style="font-size:18px; fill:#1F2A4D">FINISH</text>`
+      : `<circle cx="${p.x}" cy="${p.y}" r="17"/><text x="${p.x}" y="${p.y + 1}">${n}</text>`;
+    const html = finish
+      ? `<b>The Finish Line · Boylston Street</b>The last 0.2 miles. ${fmt(price)} · ${who ? 'Claimed by ' + who : 'Open, and the most important mile of the day'}`
+      : `<b>Mile ${n} · ${TOWN(n)}</b>${NOTE[n] ? NOTE[n] + ' · ' : ''}${tierName} · ${fmt(price)} · ${who ? 'Claimed by ' + who : 'Open'}`;
+    const act = () => select(g, html, who ? 'Give anyway' : (finish ? 'Claim the finish line' : `Claim mile ${n}`));
+    g.addEventListener('click', act);
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); act(); } });
+    spacesG.append(g);
+  }
+
+  // ---------- Share: every path carries its own source tag so analytics can tell them apart ----------
+  const SITE = 'https://teamkathleen.com/';
+  const tagged = src => `${SITE}?utm_source=${src}&utm_medium=share&utm_campaign=boston2027`;
+  const MSG = "I'm cheering on Kathleen, who's running the Boston Marathon for Girls on the Run. Help her get to the start line:";
+  document.getElementById('share-sms').href = `sms:?&body=${encodeURIComponent(MSG + ' ' + tagged('text'))}`;
+  document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(tagged('facebook'))}`;
+  document.getElementById('share-email').href = `mailto:?subject=${encodeURIComponent('Help Kathleen get to the Boston start line')}&body=${encodeURIComponent(MSG + '\n\n' + tagged('email'))}`;
+  const shareStatus = document.getElementById('share-status');
+  document.getElementById('share-copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(tagged('link')); shareStatus.textContent = 'Link copied. Paste it anywhere.'; }
+    catch { shareStatus.textContent = tagged('link'); }
+  });
+  const nat = document.getElementById('share-native');
+  if (navigator.share) {
+    nat.hidden = false;
+    nat.addEventListener('click', () => navigator.share({ title: 'Team Kathleen', text: MSG, url: tagged('share') }).catch(() => {}));
+  }
+
+  // ---------- QR code: drawn in campaign colors with the badge in the middle ----------
+  // Error correction "H" lets up to ~30% of the code be covered, which leaves room for the badge.
+  const QR_URL = `${SITE}?utm_source=qr&utm_medium=print&utm_campaign=boston2027`;
+  function qrSvg() {
+    const q = qrcode(0, 'H'); q.addData(QR_URL); q.make();
+    const n = q.getModuleCount(), m = 4, size = n + m * 2;
+    const inFinder = (r, c) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+    const hole = Math.ceil(n * 0.22), h0 = Math.floor((n - hole) / 2), h1 = h0 + hole;
+    let dots = '';
+    for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+      if (!q.isDark(r, c) || inFinder(r, c) || (r >= h0 && r < h1 && c >= h0 && c < h1)) continue;
+      dots += `<rect x="${c + m + .08}" y="${r + m + .08}" width=".84" height=".84" rx=".3"/>`;
+    }
+    const finder = (x, y) => `<rect x="${x + .5}" y="${y + .5}" width="6" height="6" rx="1.6" fill="none" stroke="#EE6F5B" stroke-width="1"/>
+      <rect x="${x + 2}" y="${y + 2}" width="3" height="3" rx=".8" fill="#1F2A4D"/>`;
+    const cx = size / 2, br = hole / 2 - .2;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" shape-rendering="geometricPrecision">
+      <rect width="${size}" height="${size}" fill="#fff"/>
+      <g fill="#1F2A4D">${dots}</g>
+      ${finder(m, m)}${finder(m + n - 7, m)}${finder(m, m + n - 7)}
+      ${BADGE_DATA
+        ? `<circle cx="${cx}" cy="${cx}" r="${br + .3}" fill="#fff"/><image href="${BADGE_DATA}" x="${cx - br}" y="${cx - br}" width="${br * 2}" height="${br * 2}"/>`
+        : `<circle cx="${cx}" cy="${cx}" r="${br}" fill="#3E9C96" stroke="#1F2A4D" stroke-width=".5"/>
+           <text x="${cx}" y="${cx}" text-anchor="middle" dominant-baseline="central" font-family="Graduate, Georgia, serif" font-size="${br * 1.15}" fill="#fff">K</text>`}
+    </svg>`;
+  }
+  let BADGE_DATA = null;
+  const qrBox = document.getElementById('qr');
+  if (window.qrcode) qrBox.innerHTML = qrSvg(); else qrBox.textContent = 'TeamKathleen.com';
+  fetch('assets/illustrations/kathleen-badge.png').then(r => r.blob()).then(b => new Promise(res => {
+    const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(b);
+  })).then(url => { BADGE_DATA = url; if (window.qrcode) qrBox.innerHTML = qrSvg(); }).catch(() => {});
+  document.getElementById('qr-dl').addEventListener('click', () => {
+    if (!window.qrcode) return;
+    const img = new Image(), px = 1200;
+    img.onload = () => {
+      const cv = Object.assign(document.createElement('canvas'), { width: px, height: px });
+      cv.getContext('2d').drawImage(img, 0, 0, px, px);
+      cv.toBlob(b => {
+        const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(b), download: 'TeamKathleen-QR.png' });
+        a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      });
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(qrSvg());
+  });
+
+  // ---------- Live numbers and the finish tape, from data/campaign.json ----------
+  // That file is refreshed daily from GivenGain by scripts/sync_givengain.py. The numbers baked into
+  // the HTML are the fallback if it can't load.
+  const tape = document.getElementById('tape-names');
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function fillTape(names) {
+    const list = names.length ? names : ['Your name here', 'Every donor', 'Every gift', 'Team Kathleen'];
+    const loop = Array(Math.max(2, Math.ceil(24 / list.length) * 2)).fill(list).flat();  // even count of copies so the -50% loop is seamless
+    tape.innerHTML = loop.map(n => `<span>${esc(n)}</span>`).join('');
+  }
+  fillTape(DONORS);
+
+  fetch('data/campaign.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+    const pct = Math.min(100, d.raised / d.target * 100);
+    const money = fmt(Math.round(d.raised));
+    document.querySelectorAll('.road .fill').forEach(f => f.style.width = pct + '%');
+    document.querySelector('.legend .start b').textContent = money;
+    document.querySelector('.mini small').textContent = `${money} / $${Math.round(d.target / 1000)}K`;
+    document.querySelectorAll('[data-raised-label]').forEach(el => el.setAttribute('aria-label', `${money} raised of ${fmt(d.target)}`));
+    if (d.donors?.length) fillTape(d.donors);
+  }).catch(() => {});
+
+  // Tap-to-play: the YouTube player loads only after a tap, so the page stays fast.
+  const yt = document.getElementById('yt');
+  yt.addEventListener('click', () => {
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube-nocookie.com/embed/${yt.dataset.id}?autoplay=1&rel=0&cc_load_policy=1`;
+    f.title = "Kathleen's video for Girls on the Run";
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    const box = document.createElement('div');
+    box.className = 'yt';
+    box.append(f);
+    yt.replaceWith(box);  // an iframe can't live inside a button
+  }, { once: true });
+</script>
+</body>
+</html>
