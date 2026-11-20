@@ -102,10 +102,14 @@ img.badge { border: 0; background: none; object-fit: cover; }
   display: grid; place-items: center; color: #fff; font-family: var(--varsity); font-size: 15px; flex: none; }
 .bar .wm { flex: 1; font-family: var(--varsity); text-transform: uppercase; letter-spacing: .05em; font-size: 18px; }
 .bar .wm b { color: var(--coral); font-weight: 400; }
-.mini { width: 160px; }
-.mini .road { height: 10px; box-shadow: none; }
-.mini .road::after { display: none; }
-.mini small { display: block; font-size: 11.5px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+/* Mini road: the hero's road in miniature (asphalt, dashed centerline, coral progress, gold finish post), beside the numbers */
+.mini { display: flex; align-items: center; gap: 10px; }
+.mini .road { width: 120px; height: 14px; border-radius: 7px; box-shadow: 0 2px 0 var(--navy); flex: none; }
+.mini .road::after { left: 5px; right: 8px; height: 2px; background: repeating-linear-gradient(90deg, #fff 0 6px, transparent 6px 11px); }
+.mini .road .fill { border-radius: 7px; }
+.mini .road .cp { right: 0; }
+.mini small { font-size: 13px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mini small b { color: var(--coral); font-family: var(--varsity); font-weight: 400; font-size: 15px; }
 .bar .btn { padding: 8px 18px; font-size: 16px; }
 
 /* ---------- Shared section styles ---------- */
@@ -336,7 +340,7 @@ img.badge { border: 0; background: none; object-fit: cover; }
   <div class="bar-inner">
     <img class="badge" src="assets/illustrations/kathleen-badge.webp" alt="" width="42" height="42">
     <span class="wm">Team <b>Kathleen</b></span>
-    <span class="mini" data-raised-label aria-label="$2,772 raised of $18,000"><span class="road"><span class="fill"></span></span><small>$2,772 / $18K</small></span>
+    <span class="mini" data-raised-label aria-label="$2,772 raised of $18,000"><span class="road"><span class="fill"></span><span class="cp"></span></span><small><b>$2,772</b> / <span class="goal">$18K</span></small></span>
     <a class="btn donate" href="https://www.givengain.com/project/kathleen-raising-funds-for-girls-on-the-run-greater-boston-129854?utm_source=teamkathleen&utm_medium=web&utm_content=header">Donate</a>
   </div>
 </nav>
@@ -721,7 +725,8 @@ img.badge { border: 0; background: none; object-fit: cover; }
     const money = fmt(Math.round(d.raised));
     document.querySelectorAll('.road .fill').forEach(f => f.style.width = pct + '%');
     document.querySelector('.legend .start b').textContent = money;
-    document.querySelector('.mini small').textContent = `${money} / $${Math.round(d.target / 1000)}K`;
+    document.querySelector('.mini small b').textContent = money;
+    document.querySelector('.mini .goal').textContent = `$${Math.round(d.target / 1000)}K`;
     document.querySelectorAll('[data-raised-label]').forEach(el => el.setAttribute('aria-label', `${money} raised of ${fmt(d.target)}`));
     if (d.donors?.length) fillTape(d.donors);
   }).catch(() => {});
