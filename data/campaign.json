@@ -1,8 +1,9 @@
 {
-  "raised": 2772,
+  "raised": 3772,
   "target": 18000,
-  "donorCount": 39,
+  "donorCount": 40,
   "donors": [
+    "Margaret Bracken",
     "Daniel Cullen",
     "Cedric Williams",
     "Claire Sherwood",
@@ -40,5 +41,5 @@
     "Denise Alexander"
   ],
   "source": "https://www.givengain.com/project/129854",
-  "updated": "2026-11-18T00:39:58+00:00"
+  "updated": "2026-11-20T11:43:47+00:00"
 }
